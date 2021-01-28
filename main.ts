@@ -74,7 +74,7 @@ forever(function () {
         mySprite2.follow(mySprite3)
     }
     if (mySprite2.isHittingTile(CollisionDirection.Top)) {
-        mySprite2.setVelocity(100, 0)
+    	
     } else {
         mySprite2.follow(mySprite3)
     }
