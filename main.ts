@@ -68,18 +68,18 @@ for (let index = 0; index < 3; index++) {
     mySprite2.follow(mySprite3)
 }
 forever(function () {
-    if (mySprite.tileKindAt(TileDirection.Left, sprites.castle.tilePath5)) {
-        mySprite.setVelocity(50, 0)
+    if (mySprite2.isHittingTile(CollisionDirection.Left)) {
+        mySprite2.setVelocity(50, 0)
     } else {
         mySprite2.follow(mySprite3)
     }
-    if (mySprite.tileKindAt(TileDirection.Top, sprites.castle.tilePath5)) {
-        mySprite.setVelocity(50, 0)
+    if (mySprite2.isHittingTile(CollisionDirection.Top)) {
+        mySprite2.setVelocity(100, 0)
     } else {
-        mySprite.follow(mySprite2)
+        mySprite2.follow(mySprite2)
     }
-    if (mySprite.tileKindAt(TileDirection.Right, sprites.castle.tilePath5)) {
-        mySprite.setVelocity(-50, 0)
+    if (mySprite2.isHittingTile(CollisionDirection.Right)) {
+        mySprite2.setVelocity(-50, 0)
     } else {
         mySprite2.follow(mySprite3)
     }
