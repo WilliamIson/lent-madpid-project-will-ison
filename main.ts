@@ -2,6 +2,9 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     mySprite.destroy()
     game.reset()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    game.reset()
+})
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 tiles.setTilemap(tilemap`level1`)
@@ -65,22 +68,6 @@ for (let index = 0; index < 3; index++) {
         . . . . . 5 5 5 5 5 5 . . . . . 
         `, SpriteKind.Enemy)
     tiles.placeOnRandomTile(mySprite2, sprites.builtin.forestTiles0)
-    mySprite2.follow(mySprite3)
+    pause(1250)
+    mySprite2.follow(mySprite)
 }
-forever(function () {
-    if (mySprite2.isHittingTile(CollisionDirection.Left)) {
-        mySprite2.setVelocity(50, 0)
-    } else {
-        mySprite2.follow(mySprite3)
-    }
-    if (mySprite2.isHittingTile(CollisionDirection.Top)) {
-    	
-    } else {
-        mySprite2.follow(mySprite3)
-    }
-    if (mySprite2.isHittingTile(CollisionDirection.Right)) {
-        mySprite2.setVelocity(-50, 0)
-    } else {
-        mySprite2.follow(mySprite3)
-    }
-})
