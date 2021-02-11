@@ -5,9 +5,14 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     mySprite.destroy()
     game.reset()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.End, function (sprite, otherSprite) {
+    tiles.setTilemap(tilemap`level4 l`)
+    pause(2000)
+    game.reset()
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     tiles.setTilemap(tilemap`level3`)
-    tiles.placeOnRandomTile(mySprite, sprites.castle.saplingOak)
+    tiles.placeOnRandomTile(mySprite, sprites.builtin.forestTiles0)
     mySprite4 = sprites.create(img`
         3333333333333333333333333333333333333333333333333333333333333333
         3333333333333333333333333333333333333333333333333333333333333333
@@ -98,4 +103,4 @@ mySprite2 = sprites.create(img`
     `, SpriteKind.Enemy)
 tiles.placeOnRandomTile(mySprite2, sprites.castle.tileGrass2)
 pause(100)
-mySprite2.follow(mySprite, 85)
+mySprite2.follow(mySprite, 90)
