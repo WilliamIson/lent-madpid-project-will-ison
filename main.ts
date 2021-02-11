@@ -6,9 +6,11 @@ scene.onHitWall(SpriteKind.Player, function (sprite, location) {
     game.reset()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.End, function (sprite, otherSprite) {
-    tiles.setTilemap(tilemap`level4 l`)
-    pause(2000)
-    game.reset()
+    tiles.setTilemap(tilemap`level7`)
+    tiles.placeOnRandomTile(mySprite, sprites.builtin.forestTiles12)
+    pause(100)
+    tiles.placeOnRandomTile(mySprite2, sprites.castle.tileGrass2)
+    mySprite2.follow(mySprite, 100)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     tiles.setTilemap(tilemap`level3`)
